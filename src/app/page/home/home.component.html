@@ -1,0 +1,45 @@
+
+<div class="m-4 new">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand ">
+                <img src="" height="38">
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav fw-semibold">
+                    <a href="#" class="nav-item nav-link ">Home</a>
+                    <a href="#" class="nav-item nav-link">Profile</a>
+                    <a href="#" class="nav-item nav-link">Messages</a>
+                    <a href="#" class="nav-item nav-link " tabindex="-1">Reports</a>
+                </div>
+                <div class="navbar-nav ms-auto ">
+
+                    <a href="/logout" class=" btn btn-outline-dark">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div>
+    <img class="homebackground" src="https://waltonbd.com/image/catalog/category-banner/mobile/h10-slider.jpg" alt="ROLLEX">
+</div>
+<section>
+    <div class="container mt-5 ">
+        <div class="row">
+            <div class=" col-md-3" *ngFor="let pdt of products" >
+                <div class="card" style="width: 12rem;">
+                    <img class="card-img-top" [src]="'http://localhost:4000/'+pdt.image" alt="Card image cap">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Name :{{pdt.title}}</h5>
+                        <p class="card-text">Model:{{pdt.model}}</p>
+                        <p class="card-text">Price:{{pdt.price}}</p>
+                        <a href="#" class="btn btn-primary ">add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
