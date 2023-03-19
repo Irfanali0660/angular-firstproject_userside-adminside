@@ -1,4 +1,8 @@
 <div class="bg-light">
+  <div *ngIf="Response" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{Response}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
     <div class="d-flex justify-content-center align-items-center" style="height:100vh;">
       <div class="adminlog bg-light text-black" style="height: 65vh; width: 50rem;">
         <div class="d-flex flex-column justify-content-center align-items-center mt-5 bg-light" style="height: 50vh;">

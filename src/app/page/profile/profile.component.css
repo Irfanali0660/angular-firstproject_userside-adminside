@@ -1,0 +1,22 @@
+.image{
+ width: 150px;
+}
+.profile{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dpHover .dpHoverContent{
+    cursor: pointer;
+    display: none;
+}
+.dpHover:hover .dpHoverContent{
+    display: flex;
+}
+.dpHover img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}

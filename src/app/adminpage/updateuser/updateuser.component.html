@@ -1,0 +1,56 @@
+<div *ngIf="response" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{response.failed}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+    <div *ngIf="data" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>{{data.success}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<div class="container" style="max-width: 600px; margin-top: 5%;">
+    <form method="post" [formGroup]="updateuser" (ngSubmit)="formsumbit()">
+     
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label fw-semibold">username</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" formControlName="username"  placeholder="@username" [(ngModel)]="user.userName">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label fw-semibold">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email"  placeholder="name@email.com" [(ngModel)]="user.email" readonly>
+          <input type="hidden" class="form-control fw-semibold" placeholder="Email" id="value2" aria-describedby="button-addon2" formControlName="id"  fdprocessedid="sx1cad"  [(ngModel)]="user._id" >
+        </div>
+        <div class="mb-3">
+          <label for="phoneNumber" class="form-label fw-semibold">Phone number</label>
+          <input type="number" class="form-control" id="phoneNumber" formControlName="phone" [(ngModel)]="user.phone">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="border border-danger p-3 rounded my-3 col-12 mx-auto" id="deleteUserContainer">
+        <div *ngIf="user.status==false else change">
+            <legend class="text-danger fw-semibold">Block Account </legend>
+            <hr>
+            <p>
+              <b >Do you want to Block this account</b> <br>
+            </p>
+        </div>
+        <ng-template #change>
+            <legend class="text-success fw-semibold">Unblock Account </legend>
+            <hr>
+            <p>
+              <b >Do you want to Unblock this account</b> <br>
+            </p>
+        </ng-template>
+        <div>
+            <form  method="post" [formGroup]="block" (ngSubmit)="blockuser()">
+                <div >
+                    <input type="hidden" formControlName="id" [(ngModel)]="user._id">
+                    <button *ngIf="user.status==false else loding" class="btn btn-danger" id="deleteAccountBtn" fdprocessedid="17ek5k">Block</button>
+                    <ng-template #loding>
+                        <button class="btn btn-success" id="deleteAccountBtn" fdprocessedid="17ek5k">Unblock</button>
+                    </ng-template>
+                </div>
+                
+            </form>
+        </div>
+      </div>
+</div>

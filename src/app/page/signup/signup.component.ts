@@ -24,7 +24,7 @@ export class SignupComponent implements OnInit{
   submitForm(){
     console.log(JSON.stringify(this.signup.value),'SignupFrom');
     const data=JSON.stringify(this.signup.value)
-    this.service.SignupData(data).subscribe((data)=>{
+    this.service.SignupData(data).subscribe((data:any)=>{
       console.log(JSON.stringify(data)+"Response");
       if(data.failed){
         this.Response=data.failed;

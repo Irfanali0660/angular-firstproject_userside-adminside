@@ -18,7 +18,6 @@ email:'',
 password:''
 }
 Response:any;
-
 submit() {
   console.log(JSON.stringify(this.data)); 
     const data=JSON.stringify(this.data)
@@ -26,12 +25,14 @@ submit() {
       console.log(JSON.stringify(data)+"Response");
       if(data.failed){
         this.Response=data.failed;
+        setTimeout(() => {
+          this.Response=null;
+        }, 4000);
       }else{
         localStorage.setItem('token',data.token.token)
         localStorage.setItem('tokenExp',data.token.exp)
         this.route.navigate(['/'])
       }
     })
-
 }
 }

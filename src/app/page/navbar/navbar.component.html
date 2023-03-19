@@ -1,0 +1,30 @@
+<div class="m-4 new ">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand ">
+                <img src="" height="38">
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav fw-semibold">
+                    <a href="#" class="nav-item nav-link ">Home</a>
+                    <a href="#" class="nav-item nav-link">Messages</a>
+                    <a href="#" class="nav-item nav-link " tabindex="-1">Reports</a>
+                </div>
+                <div class="navbar-nav ms-auto ">
+                    <div class="d-flex" *ngIf="user else loading">
+                        <a href="/profile" class="nav-item nav-link me-4 text-black fw-bold text-uppercase" *ngIf="user else loading">{{user.userName}}</a>
+                        <a (click)="logout()" class=" btn btn-outline-dark">Logout</a>
+                    </div>
+                    <ng-template #loading>
+                        <a class="nav-item nav-link me-4 text-black fw-bold" href="/profile">Profile</a>
+                        <a href="/login" class=" btn btn-outline-dark">Login</a>
+                        
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

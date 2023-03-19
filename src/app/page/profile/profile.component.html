@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<div class=" widget-content widget-content-area add-manage-product-2 container mt-5">
+    <div class="row profile">
+      <div *ngIf="response" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{response.failed}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+        <div *ngIf="data" class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>{{data.success}}</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <div class="col-xl-7 col-md-12 ">
+        <div class="admincard card card-default" style="border-color: white !important;">
+          <div class="card-body">
+                <div class=" text-center mb-5 position-relative">
+                    <img *ngIf="user.image else image" class="image rounded-circle " [src]="'http://localhost:4000/images/'+user.image" alt="">
+                    <ng-template #image><img class="image rounded-circle " src="https://t4.ftcdn.net/jpg/02/29/75/83/240_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg" alt="">
+                    </ng-template>
+                    <label for="profileImg" class="position-absolute d-block" style="top: 0;">
+                      <div class="rounded-pill  dpHoverContent justify-content-center align-items-center" style="width: 110px; height: 110px; --bs-bg-opacity: 0.5; margin-left: 301px; margin-top: 20px;" ></div>
+                    </label>       
+                    <input type="file" id="profileImg" (change)="uploadProfile($event)" class="d-none">             
+                    <h4 class="text-danger">{{user.userName}}</h4>
+                </div>
+                <form method="post" [formGroup]="profile" (ngSubmit)="formsumbit()"> 
+                    <div class="input-group mb-3">
+                      <label class="col-md-4">Full Name</label>
+                      <span class="input-group-text">
+                      </span>
+                      <input  type="text" class="form-control fw-semibold" placeholder="username" id="value1" aria-describedby="button-addon2" formControlName="username" fdprocessedid="i435z8" [(ngModel)]="user.userName" >
+                    </div>
+                    <div class="input-group mb-3">
+                      <label class="col-md-4">Email</label>
+                      <span class="input-group-text">
+                      </span>
+                      <input type="text" class="form-control fw-semibold" placeholder="Email" id="value2" aria-describedby="button-addon2" formControlName="email"  fdprocessedid="sx1cad"  [(ngModel)]="user.email">
+                    </div>
+                    <div class="input-group mb-3">
+                      <label class="col-md-4">Phone</label>
+                      <span class="input-group-text">
+                      </span>
+                      <input type="number" class="form-control" placeholder="Phone" id="value3" aria-describedby="button-addon2" formControlName="phone"  fdprocessedid="feljoq"  [(ngModel)]="user.phone">
+                    </div>
+                    <div class="text-center mt-5">
+                        <button type="submit" class="btn  btn-secondary">Submit</button>
+                    </div>
+                </form>
+        </div>
+      </div>
+    </div>
+  </div>

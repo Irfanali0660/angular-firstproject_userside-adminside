@@ -1,4 +1,5 @@
-import { Component,OnInit } from '@angular/core';
+import { NgIfContext } from '@angular/common';
+import { Component,OnInit, TemplateRef } from '@angular/core';
 import { DatabaseApiServiceService } from 'src/app/service/database-api-service.service';
 
 @Component({
@@ -8,14 +9,15 @@ import { DatabaseApiServiceService } from 'src/app/service/database-api-service.
 })
 export class HomeComponent implements OnInit{
   products:any;
-  constructor(private service:DatabaseApiServiceService){}
+  constructor(public service:DatabaseApiServiceService){}
   ngOnInit(): void {
       this.getproduct()
   }
   getproduct(){
-    this.service.products().subscribe((data)=>{
+    this.service.products().subscribe((data:any)=>{
       console.log(data); 
-      this.products=data; 
+      this.products=data;      
     })
   }
+
 }
